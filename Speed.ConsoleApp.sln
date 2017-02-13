@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speed.ConsoleApp", "Speed.ConsoleApp\Speed.ConsoleApp.csproj", "{B1574A02-2DFB-40D1-9A8D-B6EC6F20D15C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speed.Lib", "Speed.Lib\Speed.Lib.csproj", "{D00DB1C7-D9A2-4701-941E-13CCDADF2A47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Speed.Tests", "Speed.Tests\Speed.Tests.csproj", "{D93E8A06-6EDE-4C56-985E-AD6D30C975BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1574A02-2DFB-40D1-9A8D-B6EC6F20D15C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1574A02-2DFB-40D1-9A8D-B6EC6F20D15C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1574A02-2DFB-40D1-9A8D-B6EC6F20D15C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1574A02-2DFB-40D1-9A8D-B6EC6F20D15C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D00DB1C7-D9A2-4701-941E-13CCDADF2A47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D00DB1C7-D9A2-4701-941E-13CCDADF2A47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D00DB1C7-D9A2-4701-941E-13CCDADF2A47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D00DB1C7-D9A2-4701-941E-13CCDADF2A47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D93E8A06-6EDE-4C56-985E-AD6D30C975BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D93E8A06-6EDE-4C56-985E-AD6D30C975BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D93E8A06-6EDE-4C56-985E-AD6D30C975BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D93E8A06-6EDE-4C56-985E-AD6D30C975BB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
