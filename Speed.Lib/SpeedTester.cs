@@ -17,6 +17,7 @@ namespace Speed.Lib
         public event EventHandler StartEvent;
         public string LastDownloadSpeed { get; set; }
 
+
         public SpeedTester()
         {
             this._speedProvider = new NetworkSpeedProvider(new DownloadFileUrlProvider());
