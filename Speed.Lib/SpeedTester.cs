@@ -45,14 +45,14 @@ namespace Speed.Lib
             ErrorEvent?.Invoke(this, e);
         }
 
-        public void Test()
+        public void Test(string region = "westus")
         {
             while(true)
             {
                 if (_stop) return;
                 try
                 {
-                    var speed = _speedProvider.GetInternetSpeed("westus");
+                    var speed = _speedProvider.GetInternetSpeed(region);
                     LastDownloadSpeed = _speedFormatter.GetSpeed(speed);
                     OnTestComplete(EventArgs.Empty);
                 }catch(WebException ex)

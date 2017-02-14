@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Azure\ValidRegions.cs" />
     <Compile Include="DownloadFileProvider.cs" />
     <Compile Include="IDownloadFileUrlProvider.cs" />
     <Compile Include="NetworkSpeedProvider.cs" />
