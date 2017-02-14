@@ -17,16 +17,24 @@ namespace Speed.Lib
             this._fileProvider = fileProvider;
         }
 
+        public double GetInternetSpeed(AzureRegions region)
+        {
+            return GetInternetSpeed(DownloadFileUrlProvider.GetRegionString(region));
+        }
+
         public double GetInternetSpeed(string region)
         {
-            var webClient = new WebClient();
-            var sw = new Stopwatch();
-            sw.Start();
-            var data = webClient.DownloadData(this._fileProvider.GetUrlByRegion(region));
-            sw.Stop();
-            var elapsed = sw.ElapsedMilliseconds;
-            var bytesPerSecond =  Convert.ToDouble(data.Length) / (Convert.ToDouble(sw.ElapsedMilliseconds) / 1000d);
-            return Math.Round(bytesPerSecond, 2);
+
+                var webClient = new WebClient();
+                var sw = new Stopwatch();
+                sw.Start();
+                var data = webClient.DownloadData(this._fileProvider.GetUrlByRegion(region));
+                sw.Stop();
+                var elapsed = sw.ElapsedMilliseconds;
+                var bytesPerSecond = Convert.ToDouble(data.Length) / (Convert.ToDouble(sw.ElapsedMilliseconds) / 1000d);
+                return Math.Round(bytesPerSecond, 2);
+
+            
         }
     }
 }

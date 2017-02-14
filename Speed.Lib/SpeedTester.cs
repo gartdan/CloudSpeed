@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,8 +16,10 @@ namespace Speed.Lib
         public event EventHandler TestCompleteEvent;
         public event EventHandler StopEvent;
         public event EventHandler StartEvent;
-        public string LastDownloadSpeed { get; set; }
+        public event EventHandler ErrorEvent;
 
+        public string LastDownloadSpeed { get; set; }
+        public string ErrorMessage { get; set; }
 
         public SpeedTester()
         {
@@ -37,14 +40,27 @@ namespace Speed.Lib
             TestCompleteEvent?.Invoke(this, e);
         }
 
+        public void OnError(EventArgs e)
+        {
+            ErrorEvent?.Invoke(this, e);
+        }
+
         public void Test()
         {
             while(true)
             {
                 if (_stop) return;
-                var speed = _speedProvider.GetInternetSpeed("westus");
-                LastDownloadSpeed = _speedFormatter.GetSpeed(speed);
-                OnTestComplete(EventArgs.Empty);
+                try
+                {
+                    var speed = _speedProvider.GetInternetSpeed("westus");
+                    LastDownloadSpeed = _speedFormatter.GetSpeed(speed);
+                    OnTestComplete(EventArgs.Empty);
+                }catch(WebException ex)
+                {
+                    this.ErrorMessage = ex.Message;
+                    OnError(EventArgs.Empty);
+                }
+
             }
 
         }
