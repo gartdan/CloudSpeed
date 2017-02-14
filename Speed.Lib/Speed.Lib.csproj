@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Azure\ValidRegions.cs" />
     <Compile Include="DownloadFileProvider.cs" />
+    <Compile Include="Geolocation\Geolocator.cs" />
     <Compile Include="IDownloadFileUrlProvider.cs" />
     <Compile Include="NetworkSpeedProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -20,7 +20,7 @@ namespace Speed.ConsoleApp
                 {
                     Console.WriteLine("not a valid region. defaulting to westus" + region);
                     region = ValidRegions.DefaultRegion;
-                }else
+                } else
                 {
                     Print("Region set to:" + region);
                 }
