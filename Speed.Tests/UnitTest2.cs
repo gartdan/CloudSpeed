@@ -11,12 +11,20 @@ namespace Speed.Tests
     public class AzureFunctionsTests
     {
         [TestMethod]
-        public void GetLatLong()
+        public void TestGetLatLong()
         { 
             var geo = new Geolocator();
             var result = Task.Run(async () => await geo.GetLatLong()).Result;
             Assert.IsNotNull(result);
 
+        }
+
+        [TestMethod]
+        public void TestGetLocationDetails()
+        {
+            var geo = new Geolocator();
+            var result = Task.Run(async () => await geo.GetLocationDetails()).Result;
+            Assert.IsNotNull(result);
         }
     }
 }
