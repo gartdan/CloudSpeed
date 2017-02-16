@@ -58,7 +58,8 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>xcopy $(TargetDir)$(TargetFileName) c:\util\speed\speed.exe /Y
-xcopy $(TargetDir)Speed.Lib.dll c:\util\speed\Speed.Lib.dll /Y</PostBuildEvent>
+xcopy $(TargetDir)Speed.Lib.dll c:\util\speed\Speed.Lib.dll /Y
+xcopy $(TargetDir)Newtonsoft.Json.dll c:\util\speed\Newtonsoft.Json.dll /F /Y</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -19,6 +19,8 @@ namespace Speed.Lib.Azure
         public string name { get; set; }
         public object subscriptionId { get; set; }
 
+        public string DistanceAway { get; set; }
+
         public LatLong LatLong {
             get
             {
@@ -43,11 +45,18 @@ namespace Speed.Lib.Azure
             }
         }
 
-        public async Task<IList<AZRegionInfo>> GetSortedRegions(LatLong destination)
+        public async Task<IList<AZRegionInfo>> GetSortedRegions(LatLong source)
         {
             var regions = await GetRegions();
-            var sorted = regions.OrderBy(x => x.LatLong.DistanceTo(destination));
+            regions.ToList().ForEach(x => x.DistanceAway = x.LatLong.DistanceTo(source).ToString());
+            var sorted = regions.OrderBy(x => x.LatLong.DistanceTo(source));
             return sorted.ToList();
+        }
+
+        public async Task<AZRegionInfo> GetClosestRegion(LatLong source)
+        {
+            var regions = await GetSortedRegions(source);
+            return regions[0];
         }
     }
 }

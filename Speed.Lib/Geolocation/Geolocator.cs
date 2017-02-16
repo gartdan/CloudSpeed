@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Speed.Lib.Azure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,13 @@ namespace Speed.Lib.Geolocation
             return null;
         }
 
+        public async Task<AZRegionInfo> GetClosestRegion()
+        {
+            var myLocation = await GetLatLong();
+            var regions = new AZRegions();
+            return await regions.GetClosestRegion(myLocation);
+        }
+
         public async Task<LocationDetails> GetLocationDetails()
         {
             using(var client = new HttpClient())
@@ -39,7 +47,7 @@ namespace Speed.Lib.Geolocation
                 locationDetails.City = data.city;
                 locationDetails.CountryCode = data.country_code;
                 locationDetails.CountryName = data.country_name;
-                locationDetails.LatLong = new LatLong(data.latitude, data.longitude); 
+                locationDetails.LatLong = new LatLong(Convert.ToString(data.latitude), Convert.ToString(data.longitude)); 
                 locationDetails.ZipCode = data.zip_code;
                 locationDetails.RegionCode = data.region_code;
                 locationDetails.RegionName = data.region_name;

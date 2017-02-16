@@ -18,11 +18,14 @@ namespace Speed.Lib
         public event EventHandler StartEvent;
         public event EventHandler ErrorEvent;
 
+        public string RegionName { get; set; }
+
         public string LastDownloadSpeed { get; set; }
         public string ErrorMessage { get; set; }
 
-        public SpeedTester()
+        public SpeedTester(string regionName = "westus")
         {
+            this.RegionName = regionName;
             this._speedProvider = new NetworkSpeedProvider(new DownloadFileUrlProvider());
             this._speedFormatter = new SpeedFormatter();
         }
@@ -30,7 +33,7 @@ namespace Speed.Lib
         public void Start()
         {
             _stop = false;
-            Test();
+            Test(this.RegionName);
             System.Threading.Thread.Sleep(1000);
             
         }
