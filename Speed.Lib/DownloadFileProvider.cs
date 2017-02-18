@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Speed.Lib.Azure;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace Speed.Lib
 
         public string GetUrl(AzureRegions region)
         {
-            return GetUrlByRegion(GetRegionString(region));
+            return GetUrlByRegion(ValidRegions.GetRegionString(region));
         }
 
         public string GetUrlByRegion(string region)
@@ -20,24 +21,7 @@ namespace Speed.Lib
             return string.Format(UrlFormat, region);
         }
 
-        public static string GetRegionString(AzureRegions region)
-        {
-            switch (region)
-            {
-                case AzureRegions.CentralUS:
-                    return "centralus";
-                case AzureRegions.EastUS:
-                    return "eastus";
-                case AzureRegions.NorthCentralUS:
-                    return "northcentral";
-                case AzureRegions.SouthCentralUS:
-                    return "southcentral";
-                case AzureRegions.WestUS:
-                    return "westus";
-                default:
-                    throw new ArgumentException("bad region");
-            }
-        }
+ 
     }
 
     public enum AzureRegions
@@ -46,6 +30,17 @@ namespace Speed.Lib
         NorthCentralUS,
         CentralUS,
         EastUS,
-        SouthCentralUS
+        SouthCentralUS,
+        WestCentralUS, WestUS2,
+        EastUS2,
+        EastAsia, SoutheastAsia,
+        NorthEurope, WestEurope,
+        JapanWest, JapanEast,
+        BrazilSouth, AustraliaEast, AustrailiaWest,
+        CanadaCentral, CanadaEast,
+        SouthIndia, CentralIndia,
+        UKWest,
+        KoreaCentral, KoreaSouth
+
     }
 }

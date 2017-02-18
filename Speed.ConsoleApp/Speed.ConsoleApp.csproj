@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Scripts\createstorageaccounts.sh" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Speed.Lib\Speed.Lib.csproj">
